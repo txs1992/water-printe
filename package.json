@@ -1,0 +1,42 @@
+{
+  "name": "water-printe",
+  "version": "1.0.0",
+  "description": "一个基于 canvas 实现的简单文本水印工具",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build/config.js && cp -r typings/ dist/typings",
+    "start": "webpack-dev-server --inline --progress --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/txs1992/water-printe.git"
+  },
+  "typings": "typings/water-printe.d.ts",
+  "keywords": [
+    "water-printe"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/txs1992/water-printe/issues"
+  },
+  "homepage": "https://github.com/txs1992/water-printe#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.5.1",
+    "html-webpack-plugin": "^4.0.4",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "vue": "^2.6.11",
+    "vue-loader": "^15.9.1",
+    "vue-property-decorator": "^8.4.1",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
