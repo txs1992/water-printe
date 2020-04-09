@@ -2,7 +2,7 @@
   "name": "water-printe",
   "version": "1.0.0",
   "description": "一个基于 canvas 实现的简单文本水印工具",
-  "main": "index.js",
+  "main": "dist/water-printe.min.js",
   "scripts": {
     "build": "node build/config.js && cp -r typings/ dist/typings",
     "start": "webpack-dev-server --inline --progress --config webpack.config.js",
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/txs1992/water-printe.git"
   },
-  "typings": "typings/water-printe.d.ts",
+  "typings": "dist/typings/water-printe.d.ts",
   "keywords": [
     "water-printe"
   ],
@@ -27,6 +27,7 @@
     "@babel/core": "^7.9.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.1",
+    "element-ui": "^2.13.0",
     "html-webpack-plugin": "^4.0.4",
     "node-sass": "^4.13.1",
     "rollup": "^2.3.4",

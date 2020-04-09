@@ -1,4 +1,3 @@
-// declare module "water-p" {
-//   import Vue from "vue";
-//   export default Vue;
-// }
+declare module "water-printe" {
+  function waterPrinte(text: string, el: any = "body", options: any = {}): any;
+}

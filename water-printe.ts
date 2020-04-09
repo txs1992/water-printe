@@ -19,7 +19,7 @@ const defaultOptions: WaterPrinteOptions = {
 export default function waterPrinte(
   text: string,
   el: any = "body",
-  options = {} as WaterPrinteOptions
+  options: WaterPrinteOptions = {}
 ) {
   const mergeOptions: any = { ...defaultOptions, ...options };
   let node: any;
