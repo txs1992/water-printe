@@ -10,14 +10,14 @@ interface WaterPrinteOptions {
 const defaultOptions: WaterPrinteOptions = {
   zIndex: 999999,
   rotate: -20,
-  width: 150,
-  height: 80,
+  width: 200,
+  height: 200,
   font: "14px Microsoft JhengHei",
-  color: "rgba(0 , 0, 0, 0.2)",
+  color: "rgba(0 , 0, 0, 0.15)",
 };
 
 export default function waterPrinte(
-  text: string,
+  text: string = "药研社",
   el: any = "body",
   options: WaterPrinteOptions = {}
 ) {
