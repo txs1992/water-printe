@@ -9,7 +9,11 @@
 ```js
 import waterPrinte from 'water-printe'
 
-waterPrinte('哀木涕 Y009527')
+const clearWaterPrinte = waterPrinte('哀木涕 Y009527');
+
+setTimeout(() => {
+  clearWaterPrinte();
+}, 10000)
 ```
 
 ## CDN 使用示例
@@ -21,6 +25,7 @@ waterPrinte('哀木涕 Y009527')
   window.WaterPrinte('哀木涕 Y009527')
 </script>
 ```
+
 > 下图是工具效果
 
 ![demo](http://chuantu.xyz/t6/727/1586409738x1031866013.png)
@@ -33,6 +38,7 @@ waterPrinte('哀木涕 Y009527')
 | `text` | 显示在水印中的文本 | string | - | `药研社` |
 | `el` | 水印需要插入的位置,可以传入 DOM 或者 CSS 选择器 | string/HTMLDOM | - |  | `body` |
 | `options` | 水印工具的一些设置项，用于修改样式文字大小密度等 | - | - | - |
+| `clear` | 水印返回的清理函数，用于清除水印 | Function | - | - |
 
 ## options 选项
 
