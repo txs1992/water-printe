@@ -1,8 +1,8 @@
 {
   "name": "water-printe",
-  "version": "1.0.0",
+  "version": "1.1.3",
   "description": "一个基于 canvas 实现的简单文本水印工具",
-  "main": "index.js",
+  "main": "dist/water-printe.min.js",
   "scripts": {
     "build": "node build/config.js && cp -r typings/ dist/typings",
     "start": "webpack-dev-server --inline --progress --config webpack.config.js",
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/txs1992/water-printe.git"
   },
-  "typings": "typings/water-printe.d.ts",
+  "typings": "dist/typings/water-printe.d.ts",
   "keywords": [
     "water-printe"
   ],
@@ -24,10 +24,18 @@
   "homepage": "https://github.com/txs1992/water-printe#readme",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.9.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.1",
+    "element-ui": "^2.13.0",
     "html-webpack-plugin": "^4.0.4",
     "node-sass": "^4.13.1",
+    "rollup": "^2.3.4",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-typescript": "^1.0.1",
     "sass-loader": "^8.0.2",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",

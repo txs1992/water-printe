@@ -1,7 +1,9 @@
 <template>
   <div class="app">
-    <h1>Welcome To WATER-PRINTE {{ name }}.</h1>
-    <div class="container"></div>
+    <h1  @click="handleClick(name)" >Welcome To WATER-PRINTE {{ name }}.</h1>
+    <div class="container" @click="handleClick">
+      container
+    </div>
   </div>
 </template>
 
