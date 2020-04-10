@@ -22,7 +22,9 @@
     "url": "https://github.com/txs1992/water-printe/issues"
   },
   "homepage": "https://github.com/txs1992/water-printe#readme",
-  "dependencies": {},
+  "dependencies": {
+    "size-sensor": "^1.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "clean-webpack-plugin": "^3.0.0",

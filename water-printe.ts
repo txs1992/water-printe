@@ -1,3 +1,5 @@
+import { bind } from "size-sensor";
+
 interface WaterPrinteOptions {
   zIndex?: number;
   rotate?: number;
@@ -7,13 +9,75 @@ interface WaterPrinteOptions {
   font?: string;
 }
 
+/**
+ * 处理 DOM 变更
+ * @param node
+ * @param canvas
+ * @param context
+ * @param options
+ * @param text
+ */
+function handleSizeChange(
+  node: any,
+  canvas: any,
+  context: any,
+  options: any,
+  text: string
+) {
+  return (element: any) => {
+    fillCanvas(node, canvas, context, options, text);
+  };
+}
+
+/**
+ * 填充画布，将文字绘在画布上
+ * @param node
+ * @param canvas
+ * @param context
+ * @param options
+ * @param text
+ */
+function fillCanvas(
+  node: any,
+  canvas: any,
+  context: any,
+  options: any,
+  text: string
+) {
+  const { width, height } = window.getComputedStyle(node);
+  const elWidth: number = parseInt(width);
+  const elHeight: number = parseInt(height);
+  canvas.width = elWidth;
+  canvas.height = elHeight;
+
+  if (context) {
+    context.clearRect(0, 0, elWidth * 3, elHeight * 5);
+    context.rotate((options.rotate * Math.PI) / 180);
+    context.font = options.font;
+    context.fillStyle = options.color;
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+
+    const { width: itemW, height: itemH } = options;
+    let x = -(elWidth / 2);
+    while (x < elWidth * 2) {
+      let y = 0;
+      while (y < elHeight * 4) {
+        context.fillText(text, x, y);
+        y += itemH;
+      }
+      x += itemW;
+    }
+  }
+}
+
 const defaultOptions: WaterPrinteOptions = {
   zIndex: 999999,
   rotate: -20,
   width: 200,
   height: 200,
   font: "14px Microsoft JhengHei",
-  color: "rgba(0 , 0, 0, 0.15)",
+  color: "rgba(0 , 0, 0, 0.15)"
 };
 
 export default function waterPrinte(
@@ -41,42 +105,28 @@ export default function waterPrinte(
   node.style.overflow = "hidden";
 
   const canvas: any = document.createElement("canvas");
-  const { width, height } = window.getComputedStyle(node);
-  const elWidth: number = parseInt(width);
-  const elHeight: number = parseInt(height);
   node.appendChild(canvas);
   const context: any = canvas.getContext("2d");
 
+  fillCanvas(node, canvas, context, mergeOptions, text);
   canvas.style.top = 0;
   canvas.style.zIndex = 999999;
   canvas.style.position = "absolute";
   canvas.style.pointerEvents = "none";
 
-  canvas.width = elWidth;
-  canvas.height = elHeight;
-
-  if (context) {
-    context.rotate((mergeOptions.rotate * Math.PI) / 180);
-    context.font = mergeOptions.font;
-    context.fillStyle = mergeOptions.color;
-    context.textAlign = "center";
-    context.textBaseline = "middle";
-
-    const { width: itemW, height: itemH } = mergeOptions;
-    let x = -(elWidth / 2);
-    while (x < elWidth) {
-      let y = 0;
-      while (y < elHeight * 2) {
-        context.fillText(text, x, y);
-        y += itemH;
-      }
-      x += itemW;
-    }
-  }
+  const unbind: any = bind(
+    node,
+    handleSizeChange(node, canvas, context, mergeOptions, text)
+  );
 
   return () => {
-    node.removeChild(canvas);
-    node.style.position = oldPosition;
-    node.style.overflow = oldOverflow;
+    if (node) {
+      node.removeChild(canvas);
+      node.style.position = oldPosition;
+      node.style.overflow = oldOverflow;
+      if (unbind) {
+        unbind();
+      }
+    }
   };
 }
