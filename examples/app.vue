@@ -23,7 +23,6 @@ body,
   display: flex;
   flex-direction: column;
   padding: 20px 10px;
-  height: 100%;
   background: #f1f1f1;
 
   .container {
