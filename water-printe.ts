@@ -10,7 +10,7 @@ interface WaterPrinteOptions {
 
 const defaultOptions: WaterPrinteOptions = {
   zIndex: 999999,
-  rotate: -20,
+  rotate: -30,
   width: 300,
   height: 200,
   font: "14px Microsoft JhengHei",
@@ -60,7 +60,7 @@ export default function waterPrinte(
     context.fillStyle = mergeOptions.color;
     context.textAlign = "center";
     context.textBaseline = "middle";
-    context.fillText(text, canvas.width / 3, canvas.height / 3);
+    context.fillText(text, canvas.width / 3, canvas.height / 2);
   }
 
   waterPrinteEL.style.backgroundImage = `url(${canvas.toDataURL("image/png")})`;
