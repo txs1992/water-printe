@@ -29,7 +29,7 @@
     "css-loader": "^3.5.1",
     "element-ui": "^2.13.0",
     "html-webpack-plugin": "^4.0.4",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "rollup": "^2.3.4",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
